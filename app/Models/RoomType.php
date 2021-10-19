@@ -9,4 +9,9 @@ class RoomType extends Model {
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
     protected $allowedFields = ['id', 'name', 'slug'];
+
+    protected $useSoftDeletes = true;
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 }

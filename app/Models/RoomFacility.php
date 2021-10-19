@@ -9,4 +9,9 @@ class RoomFacility extends Model {
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
     protected $allowedFields = ['id', 'room_id', 'facility_icon', 'name'];
+
+    protected $useSoftDeletes = true;
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 }

@@ -17,7 +17,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('LandingController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -32,9 +32,23 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
+// user login
+$routes->get('/login', 'AuthUserController::login', ['as' => 'user_login']);
+$routes->post('/login', 'AuthUserController::store_login', ['as' => 'user_store_login']);
+
+// user register
+$routes->get('/register', 'AuthUserController::register', ['as' => 'user_register']);
+$routes->post('/register', 'AuthUserController::store_register', ['as' => 'user_store_register']);
+
+// user ui
 $routes->get('/', 'LandingController::index', ['as' => 'landing_index']);
 
-$routes->group('/admin', function($routes) {
+// admin login
+$routes->get('/admin/login', 'AuthAdminController::login', ['as' => 'admin_login']);
+$routes->post('/admin/login', 'AuthAdminController::store_login', ['as' => 'admin_store_login']);
+
+// admin cms
+$routes->group('/admin', ['filter' => 'auth_admin'], function($routes) {
     $routes->get('dashboard', 'AdminDashboardController::index', ['as' => 'admin_dashboard']);
 });
 

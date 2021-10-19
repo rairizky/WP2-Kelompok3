@@ -31,6 +31,18 @@ class Customer extends Migration
                 'type' => 'ENUM',
                 'constraint' => ['male', 'female']
             ],
+            'deleted_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
+            'created_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
+            'updated_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
         ]);
 
         $this->forge->addKey('id', TRUE);
