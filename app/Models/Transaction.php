@@ -11,7 +11,8 @@ class Transaction extends Model {
     protected $allowedFields = ['id', 'code_transaction', 'room_id', 'customer_id', 'booking_at', 'total', 'status'];
 
     protected $useSoftDeletes = true;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $useTimestamps = true;
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+    protected $deletedField = 'deleted_at';
 }

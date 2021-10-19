@@ -11,7 +11,8 @@ class RoomFacility extends Model {
     protected $allowedFields = ['id', 'room_id', 'facility_icon', 'name'];
 
     protected $useSoftDeletes = true;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $useTimestamps = true;
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+    protected $deletedField = 'deleted_at';
 }

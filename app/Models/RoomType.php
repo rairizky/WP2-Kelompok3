@@ -11,7 +11,8 @@ class RoomType extends Model {
     protected $allowedFields = ['id', 'name', 'slug'];
 
     protected $useSoftDeletes = true;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $useTimestamps = true;
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+    protected $deletedField = 'deleted_at';
 }
