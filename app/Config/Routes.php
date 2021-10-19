@@ -32,20 +32,28 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-// user login
-$routes->get('/login', 'AuthUserController::login', ['as' => 'user_login']);
-$routes->post('/login', 'AuthUserController::store_login', ['as' => 'user_store_login']);
-
-// user register
-$routes->get('/register', 'AuthUserController::register', ['as' => 'user_register']);
-$routes->post('/register', 'AuthUserController::store_register', ['as' => 'user_store_register']);
+// group auth user
+$routes->group('', ['filter' => 'handler_user'], function($routes) {
+    // user login
+    $routes->get('/login', 'AuthUserController::login', ['as' => 'user_login']);
+    $routes->post('/login', 'AuthUserController::store_login', ['as' => 'user_store_login']);
+    
+    // user register
+    $routes->get('/register', 'AuthUserController::register', ['as' => 'user_register']);
+    $routes->post('/register', 'AuthUserController::store_register', ['as' => 'user_store_register']);
+});
+$routes->get('/logout', 'AuthUserController::logout', ['as' => 'user_logout', 'filter' => 'auth_user']);
 
 // user ui
 $routes->get('/', 'LandingController::index', ['as' => 'landing_index']);
 
-// admin login
-$routes->get('/admin/login', 'AuthAdminController::login', ['as' => 'admin_login']);
-$routes->post('/admin/login', 'AuthAdminController::store_login', ['as' => 'admin_store_login']);
+// group auth admin
+$routes->group('', ['filter' => 'handler_admin'], function($routes) {
+    // admin login
+    $routes->get('/admin/login', 'AuthAdminController::login', ['as' => 'admin_login']);
+    $routes->post('/admin/login', 'AuthAdminController::store_login', ['as' => 'admin_store_login']);
+});
+$routes->get('/admin/logout', 'AuthAdminController::logout', ['as' => 'admin_logout', 'filter' => 'auth_admin']);
 
 // admin cms
 $routes->group('/admin', ['filter' => 'auth_admin'], function($routes) {

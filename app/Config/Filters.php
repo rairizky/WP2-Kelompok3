@@ -2,8 +2,10 @@
 
 namespace Config;
 
+use App\Filters\AdminHandler;
 use App\Filters\AuthAdmin;
 use App\Filters\AuthUser;
+use App\Filters\UserHandler;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -22,7 +24,9 @@ class Filters extends BaseConfig
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
         'auth_user' => AuthUser::class,
+        'handler_user' => UserHandler::class,
         'auth_admin' => AuthAdmin::class,
+        'handler_admin' => AdminHandler::class,
     ];
 
     /**

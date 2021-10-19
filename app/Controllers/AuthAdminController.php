@@ -24,7 +24,7 @@ class AuthAdminController extends BaseController {
             $username = $this->request->getVar('username');
             $password = $this->request->getVar('password');
 
-            $find_user = $user->where('username', $username)->first();
+            $find_user = $user->where('role', 'admin')->where('username', $username)->first();
             if ($find_user) {
                 $current_password = $find_user['password'];
                 $verify_password = password_verify($password, $current_password);
@@ -45,5 +45,10 @@ class AuthAdminController extends BaseController {
                 return redirect('admin_login');
             }
         }
+    }
+
+    public function logout() {
+        session()->destroy();
+        return redirect('admin_login');
     }
 }
