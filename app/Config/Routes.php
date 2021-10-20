@@ -57,7 +57,38 @@ $routes->get('/admin/logout', 'AuthAdminController::logout', ['as' => 'admin_log
 
 // admin cms
 $routes->group('/admin', ['filter' => 'auth_admin'], function($routes) {
+    // dashboard
     $routes->get('dashboard', 'AdminDashboardController::index', ['as' => 'admin_dashboard']);
+
+    // rooms
+    $routes->group('room', function($routes){
+        // manage room
+        $routes->group('manage-room', function($routes) {
+            $routes->get('', 'AdminRoomController::index', ['as' => 'admin_room']);
+            $routes->get('(:id)', 'AdminRoomController::detail/$1', ['as' => 'admin_room_detail']);
+            $routes->get('create', 'AdminRoomController::create', ['as' => 'admin_room_create']);
+            $routes->post('create', 'AdminRoomController::store', ['as' => 'admin_room_store']);
+            $routes->get('edit/(:id)', 'AdminRoomController::edit/$1', ['as' => 'admin_room_edit']);
+            $routes->patch('edit/(:id)', 'AdminRoomController::update/$1', ['as' => 'admin_room_update']);
+            $routes->delete('(:id)', 'AdminRoomController::delete/$1', ['as' => 'admin_room_delete']);
+        });
+
+        // manage room type
+        $routes->group('manage-type', function($routes) {
+            $routes->get('', 'AdminRoomTypeController::index', ['as' => 'admin_room_type']);
+            $routes->get('create', 'AdminRoomTypeController::create', ['as' => 'admin_room_type_create']);
+            $routes->post('create', 'AdminRoomTypeController::store', ['as' => 'admin_room_type_store']);
+            $routes->get('edit/(:id)', 'AdminRoomTypeController::edit/$1', ['as' => 'admin_room_type_edit']);
+            $routes->patch('edit/(:id)', 'AdminRoomTypeController::update/$1', ['as' => 'admin_room_type_update']);
+            $routes->delete('(:id)', 'AdminRoomTypeController::delete/$1', ['as' => 'admin_room_type_delete']);
+        });
+    });
+
+    // transcation
+    $routes->group('transaction', function($routes) {
+        $routes->get('', 'AdminTransactionController::index', ['as' => 'admin_transaction']);
+        $routes->get('(:code)', 'AdminTransactionController::detail/$1', ['as' => 'admin_transaction_detail']);
+    });
 });
 
 /*
