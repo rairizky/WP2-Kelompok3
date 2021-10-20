@@ -1,8 +1,7 @@
 <div class="header">
     <div class="logo logo-dark">
-        <a href="index.html">
-            <img src="<?= base_url() ?>/admin/assets/images/logo/logo.png" alt="Logo">
-            <img class="logo-fold" src="<?= base_url() ?>/admin/assets/images/logo/logo-fold.png" alt="Logo">
+        <a href="<?php echo route_to('admin_dashboard') ?>" style="margin-top: 17px;">
+            <h2>Coworkind</h2>
         </a>
     </div>
     <div class="logo logo-white">
