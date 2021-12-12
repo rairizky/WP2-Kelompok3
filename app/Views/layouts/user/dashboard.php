@@ -138,7 +138,33 @@
     <!--====== HEADER PART ENDS ======-->
 
     <!--====== Content =======-->
-    <?= $this->renderSection('content') ?>
+    <section class="blog-details" style="margin-top: 36px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- sidebar -->
+                <div class="col-lg-4 col-md-6 col-sm-7">
+                    <div class="sidebar">
+                        <div class="sidebar__single sidebar__category">
+                            <h3 class="sidebar__title">Menu</h3>
+                            <ul class="sidebar__category-list">
+                                <li class="sidebar__category-list-item"><a href="<?= route_to('landing_profile_user') ?>">Transaction <i class="fa fa-angle-right"></i></a></li>
+                            </ul><!-- /.sidebar__category-list -->
+                        </div><!-- /.sidebar__single -->
+                    </div><!-- /.sidebar -->
+                </div>
+                <!-- end sidebar -->
+
+                <!-- content -->
+                <div class="col-lg-8">
+                    <div style="margin-top: 46px;">
+                        <?= $this->renderSection('content') ?>
+                    </div>
+                </div>
+                <!-- end content -->
+            </div>
+        </div>
+    </section>
+    
     <!--====== End Content =======-->
     
     <!--====== GO TO TOP PART START ======-->
