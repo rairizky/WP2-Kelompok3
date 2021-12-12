@@ -1,6 +1,6 @@
 <div class="header">
     <div class="logo logo-dark">
-        <a href="<?php echo route_to('admin_dashboard') ?>" style="margin-top: 17px;">
+        <a href="<?php echo route_to('landing_index') ?>" style="margin-top: 17px;">
             <h2>Coworkind</h2>
         </a>
     </div>
