@@ -35,7 +35,7 @@ class AuthAdminController extends BaseController {
                         'admin_email' => $find_user['email']
                     ];
                     $session->set($admin_data);
-                    return redirect('admin_dashboard');
+                    return redirect('admin_room');
                 } else {
                     $session->setFlashdata('error', 'Password not match!');
                     return redirect('admin_login');

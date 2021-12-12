@@ -10,7 +10,7 @@ class AdminHandler implements FilterInterface {
 
     public function before(RequestInterface $request, $arguments = null) {
         if (!session()->get('admin_id') == '') {
-            return redirect('admin_dashboard');
+            return redirect('admin_room');
         }
     }
 

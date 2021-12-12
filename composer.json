@@ -6,7 +6,10 @@
     "license": "MIT",
     "require": {
         "php": "^7.3 || ^8.0",
-        "codeigniter4/framework": "^4"
+        "codeigniter4/framework": "^4",
+        "jason-napolitano/codeigniter4-cart-module": "^1.1",
+        "laminas/laminas-json": "~3.2",
+        "codenom/midtrans":"dev-master"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",

@@ -8,7 +8,7 @@ class RoomType extends Model {
     protected $table = 'room_types';
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['id', 'name', 'slug'];
+    protected $allowedFields = ['id', 'name'];
 
     protected $useSoftDeletes = true;
     protected $useTimestamps = true;

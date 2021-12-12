@@ -20,10 +20,6 @@ class RoomType extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255
             ],
-            'slug' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255
-            ],
             'deleted_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
